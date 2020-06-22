@@ -4,6 +4,7 @@ BINARIES=QuickSort
 
 all: $(BINARIES)
 
+# just like a pattern
 $(BINARIES):
 	g++ $(CFXXFLAGS) $(filter %.cc %.cpp,$^) -o $@
 
