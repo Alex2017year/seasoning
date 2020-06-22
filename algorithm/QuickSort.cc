@@ -1,10 +1,22 @@
+/*
+ * File: QuickSort.cc
+ * Project: algorithm
+ * File Created: Friday, 19th June 2020 2:29:14 pm
+ * Author: Alex
+ * -----
+ * Last Modified: Monday, 22nd June 2020 10:42:54 am
+ * Modified By: Alex
+ * -----
+ * Copyright - 2020 selfone
+ */
+
 #include <iostream>
 #include <algorithm>
 
 int partition(int arr[], int low, int high) {
   int x = arr[low];
   int i = low;
-  for(int j = low+1; j<=high; ++j) {
+  for (int j = low+1; j <= high; ++j) {
     if (arr[j] <= x) {
       i++;
       std::swap(arr[j], arr[i]);
