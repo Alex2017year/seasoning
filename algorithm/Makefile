@@ -6,9 +6,9 @@ all: $(BINARIES)
 
 # just like a pattern
 $(BINARIES):
-	g++ $(CFXXFLAGS) $(filter %.cc %.cpp,$^) -o $@
+	g++ $(CFXXFLAGS) $(filter %.cc %.hpp %.c,$^) -o $@
 
-QuickSort: QuickSort.cc
+QuickSort: QuickSort.hpp
 
 clean:
 	rm -f $(BINARIES)
