@@ -23,8 +23,9 @@ int partition(int arr[], int low, int high) {
   // this is not good
   // we can randomize pivot element, and the algorithm complexity is O(nlgn)
   int idx = randomize(low, high);
-  int x = arr[idx];
-  int i = idx;
+  std::swap(arr[low], arr[idx]);
+  int x = arr[low];
+  int i = low;
   for (int j = low; j <= high; ++j) {
     if (arr[j] <= x) {
       i++;

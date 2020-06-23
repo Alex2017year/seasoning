@@ -13,6 +13,6 @@ $(BINARIES):
 
 QuickSort: QuickSort.hpp
 
-clean:
+clean
 	rm -f $(BINARIES)
 
