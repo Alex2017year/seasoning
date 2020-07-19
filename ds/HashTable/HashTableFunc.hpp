@@ -14,6 +14,7 @@
 #define DS_HASHTABLE_HASHTABLEFUNC_HPP_
 
 #include <algorithm>
+#include <cstring>
 
 // just a demo, must add size of array
 enum { MAX_PRIME_SZIE = 14 };
@@ -30,6 +31,25 @@ inline unsigned getNearestPrime(unsigned x) {
   return result == first+MAX_PRIME_SZIE ? *(first+MAX_PRIME_SZIE-1) : *result;
 }
 
+static size_t hashCode(char c) {
+  return static_cast<size_t>(c);
+}
 
+static size_t hashCode(int k) {
+  return static_cast<size_t>(k);
+}
+
+static size_t hashCode(long long i) {
+  return static_cast<size_t>(i >> 32 + static_cast<size_t>(i));
+}
+
+static size_t hashCode(char s[]) {
+  unsigned int h = 0;
+  for (size_t n = strlen(s), i = 0; i < n; ++i) {
+    h = (h << 5) | (h >> 27);
+    h += static_cast<unsigned int>(s[i]);
+  }
+  return static_cast<size_t>(h);
+}
 
 #endif  // DS_HASHTABLE_HASHTABLEFUNC_HPP_
